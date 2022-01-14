@@ -8,7 +8,7 @@ buildscript {
     }
 }
 
-// apply(plugin = "binary-compatibility-validator")
+apply(plugin = "binary-compatibility-validator")
 
 plugins {
     `kotlin-dsl`
@@ -103,9 +103,9 @@ publishing {
     }
 }
 
-//signing {
-//    sign(publishing.publications["pluginMaven"])
-//}
+signing {
+    sign(publishing.publications["pluginMaven"])
+}
 
 tasks.javadoc {
     if (JavaVersion.current().isJava9Compatible) {
