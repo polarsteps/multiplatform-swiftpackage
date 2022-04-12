@@ -22,7 +22,7 @@ public open class SwiftPackageExtension(internal val project: Project) {
         emptyList()
     internal var appleTargets: Collection<AppleTarget> = emptyList()
     internal var zipFileName: Either<PluginConfigurationError, ZipFileName>? = null
-    internal var xcframeworkName: Either<PluginConfigurationError, XCFrameworkName>? = null
+    internal var xcframeworkName: Either<PluginConfigurationError, XCFrameworkName>? = XCFrameworkName.of("unknown")
 
     /**
      * Sets the name of the Swift package.
@@ -34,7 +34,7 @@ public open class SwiftPackageExtension(internal val project: Project) {
         packageName = PackageName.of(name)
     }
 
-    public fun xcframeworkName(name: String) {
+    public fun framework(name: String) {
         xcframeworkName = XCFrameworkName.of(name)
     }
 

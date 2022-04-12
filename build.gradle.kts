@@ -24,12 +24,12 @@ repositories {
 }
 
 dependencies {
-    compileOnly(kotlin("gradle-plugin", "1.6.10"))
+    compileOnly(kotlin("gradle-plugin", "1.6.20"))
     testImplementation("io.kotest:kotest-runner-junit5:4.3.0")
     testImplementation("io.kotest:kotest-assertions-core:4.3.0")
     testImplementation("io.kotest:kotest-property:4.3.0")
     testImplementation("io.mockk:mockk:1.10.0")
-    testImplementation(kotlin("gradle-plugin", "1.6.10"))
+    testImplementation(kotlin("gradle-plugin", "1.6.20"))
 }
 
 java {
@@ -42,6 +42,10 @@ java {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks.withType<Copy> {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
 extensions.findByName("buildScan")?.withGroovyBuilder {

@@ -26,6 +26,10 @@ internal class PluginConfiguration private constructor(
                     add(MissingSwiftToolsVersion)
                 }
 
+                if (extension.xcframeworkName == null) {
+                    add(BlankXCFrameworkName)
+                }
+
                 val targetPlatformErrors = extension.targetPlatforms.errors
                 if (targetPlatformErrors.isNotEmpty()) {
                     addAll(targetPlatformErrors)
